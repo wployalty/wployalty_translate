@@ -1,0 +1,16 @@
+{
+  "name": "wployalty/wployalty_translate",
+  "description": "Plugin used to translate dynamic input string for WPLoyalty and related add-on",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Alagesan S",
+      "email": "alagesan@flycart.org"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Wlt\\": ""
+    }
+  }
+}
