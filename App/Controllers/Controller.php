@@ -14,7 +14,7 @@ class Controller
     function adminMenu()
     {
         if (Woocommerce::hasAdminPrivilege()) {
-            add_menu_page(__('WPLoyalty: translate', 'wp-loyalty-translate'), __('WPLoyalty: translate', 'wp-loyalty-translate'), 'manage_woocommerce', WLT_PLUGIN_SLUG, array($this, 'addMenu'), 'dashicons-megaphone', 57);
+            add_menu_page(__('WPLoyalty: Translate', 'wp-loyalty-translate'), __('WPLoyalty: Translate', 'wp-loyalty-translate'), 'manage_woocommerce', WLT_PLUGIN_SLUG, array($this, 'addMenu'), 'dashicons-megaphone', 57);
         }
     }
 
