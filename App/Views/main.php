@@ -8,6 +8,6 @@ defined('ABSPATH') or die;
 ?>
 <div id="wlt-main">
     <div class="wlt_content">
-        Hi How r u?
+        <?php _e('Hi How r u ?', 'wp-loyalty-translate') ?>
     </div>
 </div>

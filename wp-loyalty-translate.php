@@ -15,7 +15,7 @@
  * Author URI: https://wployalty.net/
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
- * WPLoyalty: 1.1.9
+ * WPLoyalty: 1.1.8
  */
 defined('ABSPATH') or die;
 defined('WLT_PLUGIN_VERSION') or define('WLT_PLUGIN_VERSION', '1.0.0');
@@ -44,6 +44,11 @@ if (!function_exists('isWployaltyActiveOrNot')) {
     }
 }
 if (isWployaltyActiveOrNot()) {
+    if (!file_exists(__DIR__ . '/vendor/autoload.php')) {
+        return;
+    } else {
+        require __DIR__ . '/vendor/autoload.php';
+    }
     if (class_exists(\Wlt\App\Router::class)) {
         $plugin = new \Wlt\App\Router();
         if (method_exists($plugin, 'initHooks')) $plugin->initHooks();

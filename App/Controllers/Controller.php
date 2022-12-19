@@ -3,6 +3,7 @@
 namespace Wlt\App\Controllers;
 
 use Wlr\App\Helpers\Input;
+use Wlr\App\Helpers\Template;
 use Wlr\App\Helpers\Woocommerce;
 use Wlr\App\Models\EarnCampaign;
 use Wlr\App\Models\Levels;
@@ -13,7 +14,7 @@ class Controller
     function adminMenu()
     {
         if (Woocommerce::hasAdminPrivilege()) {
-            add_menu_page(__('WPLoyalty - translate', 'wp-loyalty-translate'), __('WPLoyalty - translate', 'wp-loyalty-translate'), 'manage_woocommerce', WLT_PLUGIN_SLUG, array($this, 'addMenu'), 'dashicons-megaphone', 57);
+            add_menu_page(__('WPLoyalty: translate', 'wp-loyalty-translate'), __('WPLoyalty: translate', 'wp-loyalty-translate'), 'manage_woocommerce', WLT_PLUGIN_SLUG, array($this, 'addMenu'), 'dashicons-megaphone', 57);
         }
     }
 
@@ -26,7 +27,12 @@ class Controller
         if ($input_helper->get('page', NULL) != WLT_PLUGIN_SLUG) {
             wp_die(__('Unable to process', 'wp-loyalty-translate'));
         }
-
+        if (class_exists(Template::class)) {
+            $template = new Template();
+            $data = array();
+            $template->setData(WLT_PLUGIN_PATH . 'App/Views/main.php', $data);
+            $template->display();
+        }
     }
 
     protected function getPointRule($campaign, $translate_strings, &$new_custom_strings)
@@ -160,7 +166,7 @@ class Controller
             $this->getSettingsStrings($new_custom_strings);
         }
         if (!empty($new_custom_strings)) {
-            foreach ($new_custom_strings as $key => $value) {
+            foreach ($new_custom_strings as $key) {
                 $custom = new \Loco_gettext_String($key);
                 $extraction->addString($custom, $domain);
             }
