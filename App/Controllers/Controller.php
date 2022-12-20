@@ -106,7 +106,7 @@ class Controller
             $reward_model = new Rewards();
             $reward_list = $reward_model->getAll('*');
             $allowed_string = array(
-                'name', 'description'
+                'name', 'description', 'display_name'
             );
             foreach ($reward_list as $reward) {
                 if (!is_object($reward) || !isset($reward->action_type)) {
