@@ -39,6 +39,8 @@ class Controller
         wp_enqueue_style(WLR_PLUGIN_SLUG . '-alertify');
         wp_register_script(WLR_PLUGIN_SLUG . '-alertify', WLR_PLUGIN_URL . 'Assets/Admin/Js/alertify.min.js', array(), WLR_PLUGIN_VERSION . '&t=' . time());
         wp_enqueue_script(WLR_PLUGIN_SLUG . '-alertify');
+        wp_register_style(WLT_PLUGIN_SLUG . '-wlt-style', WLT_PLUGIN_URL . 'Assets/Css/wlt_admin.css', array(), WLT_PLUGIN_VERSION . '&t=' . time());
+        wp_enqueue_style(WLT_PLUGIN_SLUG . '-wlt-style');
         wp_register_script(WLT_PLUGIN_SLUG . '-wlt-admin', WLT_PLUGIN_URL . 'Assets/Js/wlt_admin.js', array(), WLT_PLUGIN_VERSION . '&t=' . time());
         wp_enqueue_script(WLT_PLUGIN_SLUG . '-wlt-admin');
         $localize = array(

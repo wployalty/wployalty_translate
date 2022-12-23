@@ -18,6 +18,7 @@
  * WPLoyalty: 1.1.8
  */
 defined('ABSPATH') or die;
+defined('WLT_PLUGIN_NAME') or define('WLT_PLUGIN_NAME', 'WPLoyalty - Dynamic string translation');
 defined('WLT_PLUGIN_VERSION') or define('WLT_PLUGIN_VERSION', '1.0.0');
 defined('WLT_PLUGIN_SLUG') or define('WLT_PLUGIN_SLUG', 'wp-loyalty-translate');
 defined('WLT_PLUGIN_URL') or define('WLT_PLUGIN_URL', plugin_dir_url(__FILE__));
