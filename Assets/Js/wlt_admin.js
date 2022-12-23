@@ -9,7 +9,7 @@ if (typeof (wlt_jquery) == 'undefined') {
 }
 wlt = window.wlt || {};
 
-(function (wlr) {
+(function (wlt) {
     wlt.updateWPMLTranslation = function () {
         alertify.set('notifier', 'position', 'top-right');
         let data = {
