@@ -14,7 +14,7 @@ defined('ABSPATH') or die;
     <div class="wlt_content">
         <div class="wlt-sections">
             <div class="title">
-                <h3><?php _e('Loco translate', 'wp-loyalty-translate'); ?></h3>
+                <h3><?php _e('Loco Translate', 'wp-loyalty-translate'); ?></h3>
             </div>
             <div class="content">
                 <p><?php _e('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet cumque eaque, facilis laboriosam mollitia natus nobis perferendis possimus quas totam? Asperiores in ipsam omnis provident? Ad adipisci animi minus tempora.', 'wp-loyalty-translate'); ?></p>
@@ -22,7 +22,7 @@ defined('ABSPATH') or die;
         </div>
         <div class="wlt-sections">
             <div class="title">
-                <h3><?php _e('WPML translate', 'wp-loyalty-translate'); ?></h3>
+                <h3><?php _e('WPML Translate', 'wp-loyalty-translate'); ?></h3>
             </div>
             <div class="content">
                 <p><?php _e('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet cumque eaque, facilis laboriosam mollitia natus nobis perferendis possimus quas totam? Asperiores in ipsam omnis provident? Ad adipisci animi minus tempora.', 'wp-loyalty-translate'); ?></p>

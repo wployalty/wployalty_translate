@@ -34,7 +34,7 @@
     background: #FFFFFF;
     border-radius: 0 12px 12px 12px;
     border: 1px solid #dadae7;
-    min-height: 80vh;
+    min-height: 60vh;
 }
 #wlt-main .wlt_content .wlt-sections{
     display: flex;
