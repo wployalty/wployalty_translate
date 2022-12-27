@@ -264,4 +264,16 @@ class Controller
         }
         return false;
     }
+
+    public function getAppDetails($plugins){
+        if (is_array($plugins)) {
+            foreach ($plugins as &$plugin){
+                if(is_array($plugin) && isset($plugin['plugin']) && $plugin['plugin'] == 'wp-loyalty-translate/wp-loyalty-translate.php'){
+                    $plugin['page_url'] = admin_url('admin.php?' . http_build_query(array('page' => WLT_PLUGIN_SLUG)));
+                    break;
+                }
+            }
+        }
+        return $plugins;
+    }
 }
