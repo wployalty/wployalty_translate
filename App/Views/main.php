@@ -27,10 +27,10 @@ defined('ABSPATH') or die;
             <div class="content">
                 <p><?php _e('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet cumque eaque, facilis laboriosam mollitia natus nobis perferendis possimus quas totam? Asperiores in ipsam omnis provident? Ad adipisci animi minus tempora.', 'wp-loyalty-translate'); ?></p>
                 <?php if (isset($is_wpml_translate_string_available) && $is_wpml_translate_string_available): ?>
-                   <div class="wlt_button">
-                    <a class="wlt_wpml_button" id="wlt_update_wpml_string"
-                       onclick="wlt.updateWPMLTranslation()"><?php _e('Update Dynamic String for WPML', 'wp-loyalty-translate'); ?></a>
-                   </div>
+                    <div class="wlt_button">
+                        <a class="wlt_wpml_button" id="wlt_update_wpml_string"
+                        ><?php _e('Update Dynamic String for WPML', 'wp-loyalty-translate'); ?></a>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>

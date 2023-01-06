@@ -10,7 +10,7 @@ if (typeof (wlt_jquery) == 'undefined') {
 wlt = window.wlt || {};
 
 (function (wlt) {
-    wlt.updateWPMLTranslation = function () {
+    wlt_jquery(document).on('click', '#wlt_update_wpml_string', function (e) {
         alertify.set('notifier', 'position', 'top-right');
         let data = {
             action: 'wlt_add_dynamic_string',
@@ -34,5 +34,5 @@ wlt = window.wlt || {};
                 wlt_jquery('#wlt_update_wpml_string').removeAttr('disabled');
             }
         });
-    };
+    });
 })(wlt_jquery);

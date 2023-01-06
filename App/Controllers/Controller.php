@@ -41,7 +41,7 @@ class Controller
         wp_enqueue_script(WLR_PLUGIN_SLUG . '-alertify');
         wp_register_style(WLT_PLUGIN_SLUG . '-wlt-style', WLT_PLUGIN_URL . 'Assets/Css/wlt_admin.css', array(), WLT_PLUGIN_VERSION . '&t=' . time());
         wp_enqueue_style(WLT_PLUGIN_SLUG . '-wlt-style');
-        wp_register_script(WLT_PLUGIN_SLUG . '-wlt-admin', WLT_PLUGIN_URL . 'Assets/Js/wlt_admin.js', array(), WLT_PLUGIN_VERSION . '&t=' . time());
+        wp_register_script(WLT_PLUGIN_SLUG . '-wlt-admin', WLT_PLUGIN_URL . 'Assets/Js/wlt_admin.js', array('jquery'), WLT_PLUGIN_VERSION . '&t=' . time());
         wp_enqueue_script(WLT_PLUGIN_SLUG . '-wlt-admin');
         $localize = array(
             'admin_url' => admin_url(),
@@ -267,10 +267,11 @@ class Controller
         return false;
     }
 
-    public function getAppDetails($plugins){
+    public function getAppDetails($plugins)
+    {
         if (is_array($plugins)) {
-            foreach ($plugins as &$plugin){
-                if(is_array($plugin) && isset($plugin['plugin']) && $plugin['plugin'] == 'wp-loyalty-translate/wp-loyalty-translate.php'){
+            foreach ($plugins as &$plugin) {
+                if (is_array($plugin) && isset($plugin['plugin']) && $plugin['plugin'] == 'wp-loyalty-translate/wp-loyalty-translate.php') {
                     $plugin['page_url'] = admin_url('admin.php?' . http_build_query(array('page' => WLT_PLUGIN_SLUG)));
                     break;
                 }
