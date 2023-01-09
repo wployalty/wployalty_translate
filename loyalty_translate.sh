@@ -22,7 +22,7 @@ copy_folder(){
   echo "Compress Dir $pack_compress_folder"
   from_folder="wployalty_translate"
   from_folder_dir=$current_dir$from_folder
-  move_dir=("App" "i18n" "vendor" "wp-loyalty-translate.php")
+  move_dir=("App" "i18n" "vendor" "Assets" "wp-loyalty-translate.php")
   if [ -d "$pack_compress_folder" ]
   then
       rm -r "$pack_folder"
