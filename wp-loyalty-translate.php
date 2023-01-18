@@ -15,7 +15,7 @@
  * Author URI: https://wployalty.net/
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
- * WPLoyalty: 1.1.8
+ * WPLoyalty: 1.1.9
  */
 defined('ABSPATH') or die;
 defined('WLT_PLUGIN_NAME') or define('WLT_PLUGIN_NAME', 'WPLoyalty - Dynamic string translation');
