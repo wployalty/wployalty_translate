@@ -42,7 +42,7 @@ if (!function_exists('isWployaltyActiveOrNot')) {
         if (is_multisite()) {
             $active_plugins = array_merge($active_plugins, get_site_option('active_sitewide_plugins', array()));
         }
-        return in_array('wp-loyalty-rules/wp-loyalty-rules.php', $active_plugins, false) || array_key_exists('wp-loyalty-rules/wp-loyalty-rules.php', $active_plugins);
+        return in_array('wp-loyalty-rules/wp-loyalty-rules.php', $active_plugins, false) || in_array('wp-loyalty-rules-lite/wp-loyalty-rules-lite.php', $active_plugins, false);
     }
 }
 if (isWployaltyActiveOrNot()) {
