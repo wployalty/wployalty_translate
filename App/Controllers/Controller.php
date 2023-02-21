@@ -20,6 +20,17 @@ class Controller
         }
     }
 
+    function menuHide()
+    {
+        ?>
+        <style>
+            #toplevel_page_wp-loyalty-translate {
+                display: none !important;
+            }
+        </style>
+        <?php
+    }
+
     function removeAdminNotice()
     {
         remove_all_actions('admin_notices');

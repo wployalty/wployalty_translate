@@ -16,6 +16,7 @@ class Router
         add_filter('wlr_loyalty_apps', array(self::$controller, 'getAppDetails'));
         if (is_admin() && self::$controller->isPluginIsActive('wp-loyalty-rules/wp-loyalty-rules.php')) {
             add_action('admin_menu', array(self::$controller, 'adminMenu'));
+            add_action('admin_footer', array(self::$controller, 'menuHide'));
             add_action('admin_enqueue_scripts', array(self::$controller, 'adminScripts'), 100);
 
             if (self::$controller->isPluginIsActive('loco-translate/loco.php')) {
