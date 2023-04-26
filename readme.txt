@@ -30,11 +30,11 @@ More information could be found in the documentation
     - PHP version 7.0.0 or greater
 
 == Changelog ==
-= 1.0.0 =
-- initial release
+= 1.0.2 =
+- Fix: version update check
 
 = 1.0.1 =
 - Fix: Free version support
 
-= 1.0.2 =
-- Fix: version update check
+= 1.0.0 =
+- initial release
