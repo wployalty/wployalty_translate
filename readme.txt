@@ -15,11 +15,11 @@ WPLoyalty - dynamic string translation add-on used to translate dynamic string f
 
 == Description ==
 
-[WPLoyalty - dynamic string translation](https://wployalty.net?utm_campaign=wplfree&utm_source=translate_addon&utm_medium=listing) used for translate string automatically.
+[WPLoyalty - dynamic string translation](https://wployalty.net?utm_campaign=wpl_translate_addon&utm_source=gitrepo&utm_medium=listing) add-on used to translate dynamic string for WPLoyalty and related add-on
 
 == Installation ==
 
-Just use the WordPress installer or upload to the /wp-content/plugins folder. Then Activate the WPLoyalty - Auto currency plugin.
+Just use the WordPress installer or upload to the /wp-content/plugins folder. Then Activate the WPLoyalty - dynamic string translation plugin.
 More information could be found in the documentation
 
 = Minimum Requirements =
