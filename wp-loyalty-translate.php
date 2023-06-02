@@ -4,14 +4,14 @@
  * Plugin URI: https://www.wployalty.net
  * Description: This add-on used to translate dynamic string for WPLoyalty and related add-on
  * Version: 1.0.2
- * Author: Wployalty
+ * Author: WPLoyalty
  * Slug: wp-loyalty-translate
  * Text Domain: wp-loyalty-translate
  * Domain Path: /i18n/languages/
  * Requires at least: 4.9.0
  * WC requires at least: 6.5
  * WC tested up to: 7.5
- * Contributors: Wployalty, Alagesan
+ * Contributors: Alagesan
  * Author URI: https://wployalty.net/
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
