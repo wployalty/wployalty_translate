@@ -200,6 +200,59 @@ class Controller
         }
     }
 
+    /**
+     * Add email strings.
+     *
+     * @param array $new_custom_strings custom strings.
+     * @return void
+     */
+    function emailStrings(&$new_custom_strings)
+    {
+        $allowed_strings = array(
+            '{wlr_expiry_points} {wlr_points_label} are about to expire',
+            'Redeem your hard earned {wlr_points_label} before they expire on {wlr_expiry_date}',
+            'Shop & Redeem Now', 'Points Earned', 'Display referral url', 'Display current customer point',
+            'Display customer total earned point', 'Display customer used point', 'Display customer name',
+            'Customer reward page link', 'Site/Store name', 'Display campaign name', 'Display campaign type',
+            'Display earned point', 'Display order id', 'Display earned reward', 'Display expire reward display name',
+            'Display expire redeem url', 'Display expire date', 'Display expire points', 'Display point label', 'Display shop url',
+            'Display earn point with label or earn reward with label', 'Display level name', 'Affiliate Approved Email',
+            'An email sent to the customer when an order is cancelled.', 'Order led', '[%s] Order Cancelled',
+            'Wishing you a very happy birthday!', 'I wanted to make your day extra special by giving birthday gift as {wlr_earn_point_or_reward}.',
+            'You have earned {wlr_earn_point}!', 'Refer your friends and earn more points and reward. Your referral url: {wlr_referral_url}',
+            'You have earned {wlr_earn_reward} reward!', 'Your reward are about to expire...', '{wlr_reward_name} reward are going to expire soon!',
+            'Redeem your hard earned reward before it expires on {wlr_expiry_date}', 'Congratulation, You reached new level!',
+            'Congratulations on reaching a new level!. You unlocked new earning opportunities!', 'Your points are about to expire...',
+            '{wlr_expiry_points} reward are going to expire soon!', 'Redeem your hard earned points before it expires on {wlr_expiry_date}',
+            'Happy Birthday! Checkout your birthday gift', 'Congrats! You have earned more points', 'Congrats! You have earned reward',
+            'Congrats! You reached new level.', 'Birthday Email Notification', 'This email is sent to the customer when they earn points/reward via birthday',
+            'Special gift for your special day!', 'Happy Birthday! Celebrate Your Special Day!', 'Hi', 'We wish you a very Happy Birthday!',
+            'Let\'s make your day even more special!', 'Celebrate your birthday with a special gift from {wlr_store_name}',
+            '{wlr_earn_point_or_reward}.', 'Shop Now!', 'Refer your friends and earn more rewards.', 'Your Referral Link',
+            'Sending birthday earned %s email failed(%s)', 'Sending birthday earned %s email failed to %s for %s campaign',
+            'Earned %s birthday email sent to customer successfully(%s)', 'Earned %s birthday email sent to %s for %s campaign',
+            'Enable/Disable', 'Enable this email notification', 'Subject', 'This controls the email subject line. Leave blank to use the default subject: <code>%s</code>.',
+            'Email Heading', 'This controls the main heading contained within the email notification. Leave blank to use the default heading: <code>%s</code>.',
+            'Email type', 'Choose which format of email to send.', 'Plain text', 'HTML', 'Multipart', 'This email is sent to the customer when they earn points',
+            'You have earned points.', 'You have earned points', 'You have earned {wlr_earn_point} points!', 'Nice work! You have earned {wlr_earn_point} points!.',
+            'Refer your friends and earn more points.', 'Sending earned %s email failed(%s)', 'Sending earned %s email failed to %s for %s campaign',
+            'Earned %s email sent to customer successfully(%s)', 'Earned %s email sent to %s for %s campaign', 'Reward Earned',
+            'This email is sent to the customer when they earn reward', 'You have earned rewards.', 'You have earned rewards',
+            'Nice work! You have earned {wlr_earn_reward} reward!.', 'Refer your friends and earn more points and reward.',
+            'Reward Expiry Notification', 'This email is sent to the customer when reward is going to expire', 'Your reward points are about to expire. Redeem now!',
+            'Sending expiry coupon email failed(%s)', 'Expiry coupon email sent to customer successfully(%s)', 'Expiry coupon email sent successfully(%s)',
+            ' Level Achievement Notification', 'This email is sent to the customer when they move to new level', 'You\'ve unlocked a new level!',
+            'Well Done! You have Reached an Exciting New Level!', 'Hey!', 'Congratulations on reaching new level {wlr_level_name} at {wlr_store_name}!',
+            'You\'ve unlocked new earning opportunities!', 'Check out now! ', 'Sending level update email failed(%s)', 'Level update email successfully sent!(%s)',
+            'Point Expiry Notification', 'This email is sent to the customer when point is going to expire', 'Your points are about to expire. Redeem now!',
+            'Sending expiry %s(%s) email failed', 'Expiry %s (%s) email sent successfully'
+        );
+        foreach ($allowed_strings as $key) {
+            $new_custom_strings[] = $key;
+        }
+    }
+
+
     function getDynamicStrings($domain)
     {
         $new_custom_strings = array();
@@ -210,6 +263,7 @@ class Controller
             $this->getRewardStrings($new_custom_strings);
             $this->getLevelStrings($new_custom_strings);
             $this->getSettingsStrings($new_custom_strings);
+            $this->emailStrings($new_custom_strings);
         }
         return $new_custom_strings;
     }
