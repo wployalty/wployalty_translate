@@ -30,6 +30,9 @@ More information could be found in the documentation
     - PHP version 7.0.0 or greater
 
 == Changelog ==
+= 1.0.4 =
+- Added: Email template strings
+
 = 1.0.3 =
 - Added: HPOS Support
 
