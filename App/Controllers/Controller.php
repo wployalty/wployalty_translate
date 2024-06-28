@@ -2,12 +2,12 @@
 
 namespace Wlt\App\Controllers;
 
-use Wlr\App\Helpers\Input;
-use Wlr\App\Helpers\Template;
-use Wlr\App\Helpers\Woocommerce;
-use Wlr\App\Models\EarnCampaign;
-use Wlr\App\Models\Levels;
-use Wlr\App\Models\Rewards;
+use Wlt\App\Helpers\Input;
+use Wlt\App\Helpers\Template;
+use Wlt\App\Helpers\Woocommerce;
+use Wlt\App\Models\EarnCampaign;
+use Wlt\App\Models\Levels;
+use Wlt\App\Models\Rewards;
 
 class Controller
 {
@@ -108,7 +108,7 @@ class Controller
 
     function getCampaignStrings(&$new_custom_strings)
     {
-        if (class_exists('\Wlr\App\Models\EarnCampaign')) {
+        if (class_exists('Wlt\App\Models\EarnCampaign')) {
             $campaign_model = new EarnCampaign();
             $campaign_list = $campaign_model->getAll('*');
             $campaign_allowed_string = array(
@@ -148,7 +148,7 @@ class Controller
 
     function getRewardStrings(&$new_custom_strings)
     {
-        if (class_exists('\Wlr\App\Models\Rewards')) {
+        if (class_exists('\Wlt\App\Models\Rewards')) {
             $reward_model = new Rewards();
             $reward_list = $reward_model->getAll('*');
             $allowed_string = array(
@@ -166,7 +166,7 @@ class Controller
 
     function getLevelStrings(&$new_custom_strings)
     {
-        if (class_exists('\Wlr\App\Models\Levels')) {
+        if (class_exists('\Wlt\App\Models\Levels')) {
             $level_model = new Levels();
             $levels = $level_model->getAll('*');
             $allowed_string = array(
@@ -183,7 +183,7 @@ class Controller
 
     function getSettingsStrings(&$new_custom_strings)
     {
-        if (class_exists('\Wlr\App\Helpers\Woocommerce')) {
+        if (class_exists('Wlt\App\Helpers\Woocommerce')) {
             $woocommerce_helper = Woocommerce::getInstance();
             $options = $woocommerce_helper->getOptions('wlr_settings');
             if (!is_array($options)) {
