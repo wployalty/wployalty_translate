@@ -6,9 +6,10 @@
  * */
 
 namespace Wlt\App\Helpers;
-defined('ABSPATH') or die;
+defined( 'ABSPATH' ) or die;
 
 use Exception;
+
 class Input {
 
 	/**
@@ -80,7 +81,14 @@ class Input {
 		'Redirect\s+30\d',
 		"([\"'])?data\s*:[^\\1]*?base64[^\\1]*?,[^\\1]*?\\1?"
 	);
-
+	/**
+	 * XSS Hash
+	 *
+	 * Random Hash for protecting URLs.
+	 *
+	 * @var    string
+	 */
+	protected $_xss_hash;
 
 	/**
 	 * Input constructor.
@@ -320,6 +328,7 @@ class Input {
 			$this->entity_decode( $match, $this->charset )
 		);
 	}
+
 	/**
 	 * XSS Clean
 	 *
@@ -459,6 +468,7 @@ class Input {
 	protected function _compact_exploded_words( $matches ) {
 		return preg_replace( '/\s+/s', '', $matches[1] ) . $matches[2];
 	}
+
 	/**
 	 * Do Never Allowed
 	 *
@@ -723,5 +733,21 @@ class Input {
 	 */
 	protected function _convert_attribute( $match ) {
 		return str_replace( array( '>', '<', '\\' ), array( '&gt;', '&lt;', '\\\\' ), $match[0] );
+	}
+
+	/**
+	 * URL-decode taking spaces into account
+	 *
+	 * @param $matches
+	 *
+	 * @return string
+	 */
+	protected function _urldecodespaces( $matches ) {
+		$input    = $matches[0];
+		$nospaces = preg_replace( '#\s+#', '', $input );
+
+		return ( $nospaces === $input )
+			? $input
+			: rawurldecode( $nospaces );
 	}
 }
