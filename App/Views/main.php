@@ -7,6 +7,7 @@
 defined('ABSPATH') or die;
 ?>
 <div id="wlt-main">
+    <div class="wlr-toast-notification"></div>
     <div class="wlt-main-header">
         <h1><?php echo WLT_PLUGIN_NAME; ?> </h1>
         <div><b><?php echo "v" . WLT_PLUGIN_VERSION; ?></b></div>
