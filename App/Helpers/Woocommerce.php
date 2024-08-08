@@ -6,10 +6,13 @@
  * */
 
 namespace Wlt\App\Helpers;
-defined('ABSPATH') or die();
+
+defined( 'ABSPATH' ) or die();
+
 class Woocommerce {
 	public static $instance = null;
 	protected static $options = array();
+
 	public static function hasAdminPrivilege() {
 		if ( current_user_can( 'manage_woocommerce' ) ) {
 			return true;

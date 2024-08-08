@@ -8,6 +8,7 @@
 namespace Wlt\App\Models;
 
 use Wlt\App\Models\Base;
+
 defined( 'ABSPATH' ) or die;
 
 defined( 'ABSPATH' ) or die;

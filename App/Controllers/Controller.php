@@ -3,7 +3,7 @@
 namespace Wlt\App\Controllers;
 
 use Wlt\App\Helpers\Input;
-use Wlt\App\Helpers\Template;
+use Wlt\App\Helpers\Util;
 use Wlt\App\Helpers\Woocommerce;
 use Wlt\App\Models\EarnCampaign;
 use Wlt\App\Models\Levels;
@@ -14,10 +14,11 @@ class Controller {
 
 	function adminMenu() {
 		if ( Woocommerce::hasAdminPrivilege() ) {
-			add_menu_page( __( 'WPLoyalty: Translate', 'wp-loyalty-translate' ), __( 'WPLoyalty: Translate', 'wp-loyalty-translate' ), 'manage_woocommerce', WLT_PLUGIN_SLUG, array(
-				$this,
-				'addMenu'
-			), 'dashicons-megaphone', 57 );
+			add_menu_page( __( 'WPLoyalty: Translate', 'wp-loyalty-translate' ),
+				__( 'WPLoyalty: Translate', 'wp-loyalty-translate' ), 'manage_woocommerce', WLT_PLUGIN_SLUG, array(
+					$this,
+					'addMenu'
+				), 'dashicons-megaphone', 57 );
 		}
 	}
 
@@ -39,18 +40,21 @@ class Controller {
 		if ( ! Woocommerce::hasAdminPrivilege() ) {
 			return;
 		}
-		$input_helper = new Input();
-		if ( $input_helper->get( 'page', null ) != WLT_PLUGIN_SLUG ) {
+		if ( Input::get( 'page', null ) != WLT_PLUGIN_SLUG ) {
 			return;
 		}
 		$this->removeAdminNotice();
-		wp_register_style( WLT_PLUGIN_SLUG . '-wlt-style', WLT_PLUGIN_URL . 'Assets/Css/wlt_admin.css', array(), WLT_PLUGIN_VERSION . '&t=' . time() );
+		wp_register_style( WLT_PLUGIN_SLUG . '-wlt-style', WLT_PLUGIN_URL . 'Assets/Css/wlt_admin.css', array(),
+			WLT_PLUGIN_VERSION . '&t=' . time() );
 		wp_enqueue_style( WLT_PLUGIN_SLUG . '-wlt-style' );
-		wp_register_style( WLT_PLUGIN_SLUG . '-wlr-toast', WLT_PLUGIN_URL . 'Assets/Css/wlr-toast.css', array(), WLT_PLUGIN_VERSION . '&t=' . time() );
+		wp_register_style( WLT_PLUGIN_SLUG . '-wlr-toast', WLT_PLUGIN_URL . 'Assets/Css/wlr-toast.css', array(),
+			WLT_PLUGIN_VERSION . '&t=' . time() );
 		wp_enqueue_style( WLT_PLUGIN_SLUG . '-wlr-toast' );
-		wp_register_script( WLT_PLUGIN_SLUG . '-wlr-toast', WLT_PLUGIN_URL . 'Assets/Js/wlr-toast.js', array( 'jquery' ), WLT_PLUGIN_VERSION . '&t=' . time() );
+		wp_register_script( WLT_PLUGIN_SLUG . '-wlr-toast', WLT_PLUGIN_URL . 'Assets/Js/wlr-toast.js',
+			array( 'jquery' ), WLT_PLUGIN_VERSION . '&t=' . time() );
 		wp_enqueue_script( WLT_PLUGIN_SLUG . '-wlr-toast' );
-		wp_register_script( WLT_PLUGIN_SLUG . '-wlt-admin', WLT_PLUGIN_URL . 'Assets/Js/wlt_admin.js', array( 'jquery' ), WLT_PLUGIN_VERSION . '&t=' . time() );
+		wp_register_script( WLT_PLUGIN_SLUG . '-wlt-admin', WLT_PLUGIN_URL . 'Assets/Js/wlt_admin.js',
+			array( 'jquery' ), WLT_PLUGIN_VERSION . '&t=' . time() );
 		wp_enqueue_script( WLT_PLUGIN_SLUG . '-wlt-admin' );
 		$localize = array(
 			'admin_url'    => admin_url(),
@@ -64,17 +68,15 @@ class Controller {
 		if ( ! Woocommerce::hasAdminPrivilege() ) {
 			wp_die( __( "Don't have access permission", 'wp-loyalty-translate' ) );
 		}
-		$input_helper = new Input();
-		if ( $input_helper->get( 'page', null ) != WLT_PLUGIN_SLUG ) {
+		if ( Input::get( 'page', null ) != WLT_PLUGIN_SLUG ) {
 			wp_die( __( 'Unable to process', 'wp-loyalty-translate' ) );
 		}
-		if ( class_exists( Template::class ) ) {
-			$template = new Template();
-			$data     = array(
+		if ( class_exists( Util::class ) ) {
+			$data = array(
 				'is_wpml_translate_string_available' => $this->isPluginIsActive( 'wpml-string-translation/plugin.php' )
 			);
-			$template->setData( WLT_PLUGIN_PATH . 'App/Views/main.php', $data );
-			$template->display();
+			$path = WLT_PLUGIN_PATH . 'App/Views/main.php';
+			Util::renderTemplate( $path, $data );
 		}
 	}
 
@@ -208,7 +210,7 @@ class Controller {
 	/**
 	 * Add email strings.
 	 *
-	 * @param array $new_custom_strings custom strings.
+	 * @param   array  $new_custom_strings  custom strings.
 	 *
 	 * @return void
 	 */
@@ -356,11 +358,10 @@ class Controller {
 	}
 
 	function addWPMLCustomString() {
-		$response     = array(
+		$response  = array(
 			'success' => false
 		);
-		$input_helper = new Input();
-		$wlt_nonce    = (string) $input_helper->post_get( 'wlt_nonce', '' );
+		$wlt_nonce = (string) Input::get( 'wlt_nonce', '' );
 		if ( ! Woocommerce::hasAdminPrivilege() || ! Woocommerce::verify_nonce( $wlt_nonce, 'wlt_common_nonce' ) ) {
 			$response['message'] = __( 'Security validation failed', 'wp-loyalty-translate' );
 			wp_send_json( $response );

@@ -6,11 +6,10 @@
  * */
 
 namespace Wlt\App\Models;
+
 defined( 'ABSPATH' ) or die();
 
 class EarnCampaign extends Base {
-
-
 	function __construct() {
 		parent::__construct();
 		$this->table = self::$db->prefix . 'wlr_earn_campaign';

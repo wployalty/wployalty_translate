@@ -10,7 +10,6 @@ namespace Wlt\App\Models;
 defined( 'ABSPATH' ) or die();
 
 abstract class Base {
-
 	static protected $db;
 	protected $table = null;
 
@@ -19,7 +18,7 @@ abstract class Base {
 		self::$db = $wpdb;
 	}
 
-	function getAll( $select = '*'  ) {
+	function getAll( $select = '*' ) {
 		if ( is_array( $select ) || is_object( $select ) ) {
 			$select = implode( ',', $select );
 		}

@@ -3,10 +3,10 @@ Contributors: wployalty
 Donate link: https://wployalty.net
 Tags: points, rewards, loyalty, woocommerce points and rewards, points and rewards, woocommerce loyalty, woocommerce rewards, woocommerce reward program, woocommerce loyalty program, reward system
 Requires at least: 4.9.0
-Tested up to: 6.3
+Tested up to: 6.6
 WC requires at least: 6.5.0
-WC tested up to: 8.0
-Stable tag: 1.0.3
+WC tested up to: 9.1
+Stable tag: 1.0.5
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -30,6 +30,9 @@ More information could be found in the documentation
     - PHP version 7.0.0 or greater
 
 == Changelog ==
+= 1.0.5 =
+- Code Revamp
+
 = 1.0.4 =
 - Added: Email template strings
 
