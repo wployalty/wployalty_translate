@@ -11,7 +11,6 @@ wlt = window.wlt || {};
 
 (function (wlt) {
     wlt_jquery(document).on('click', '#wlt_update_wpml_string', function (e) {
-        alertify.set('notifier', 'position', 'top-right');
         let data = {
             action: 'wlt_add_dynamic_string',
             wlt_nonce: wlt_localize_data.common_nonce
@@ -27,9 +26,9 @@ wlt = window.wlt || {};
             },
             success: function (json) {
                 if (json.success) {
-                    alertify.success(json.message);
+                    createToast(json.message, 'wlr-success');
                 } else {
-                    alertify.error(json.message);
+                    createToast(json.message, 'wlr-error');
                 }
                 wlt_jquery('#wlt_update_wpml_string').removeAttr('disabled');
             }
